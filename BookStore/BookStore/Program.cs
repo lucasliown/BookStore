@@ -1,5 +1,7 @@
 using BookStore.Data;
 using Microsoft.EntityFrameworkCore;
+using MediatR;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BookStoreContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("mysqlConstr")
     ));
-
+builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 
 
 var app = builder.Build();
