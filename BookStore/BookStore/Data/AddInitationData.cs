@@ -4,11 +4,12 @@ namespace BookStore.Data
 {
     public static class AddInitationData
     {
+        //add initialize data to the MySQL
         public static void Initialize(IServiceProvider serviceProvider)
         {
             var context = serviceProvider.GetRequiredService<BookStoreContext>();
 
-
+            //check if anything in the Context, wil not run the rest of code
             if (context.Books.Any())
                 return;
 
@@ -32,8 +33,6 @@ namespace BookStore.Data
                       Quantity = 1,
                   }
             );
-
-            context.SaveChanges();
 
             context.Customers.AddRange(
                 new Customer
