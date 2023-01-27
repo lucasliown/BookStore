@@ -1,23 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Routes } from "react-router-dom";
 import NavbarComponent from './fragments/NavbarComponent';
 import FooterComponent from './fragments/FooterComponent';
+import { ToastContainer, Slide, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./css/App.css";
 import HomeComponent from './components/HomeComponent';
+import LoginComponent from './components/LoginComponent';
+import UserContext from './context/UserContext';
+import { getUserData, logoutFromWbsite } from './DataManage/userData'
+
 
 
 
 function App() {
+    const [currentUser, setCurrentUser] = useState(getUserData());
+
+    //this call back function is for log out
+    const logout = () => {
+        logoutFromWbsite();
+        setCurrentUser(null);
+        toast.dismiss();
+    };
+
+
     return (
         <div className="d-flex flex-column min-vh-100">
             <NavbarComponent />
+            <UserContext.Provider
+                value={{ currentUser, setCurrentUser, logout }}
+            >
             <Routes>
                 <Route path="/" element={<HomeComponent />}/>
-{/*                <Route path="/login" element={<Login />} />*/}
+                    <Route path="/login" element={<LoginComponent />} />
 {/*                <Route path="/bookList" element={<BookList/>}/>*/}
-            </Routes>
+                </Routes>
+            </UserContext.Provider>
             <FooterComponent />
-      </div>
+            <ToastContainer transition={Slide} />
+        </div>
+
     );
 }
 

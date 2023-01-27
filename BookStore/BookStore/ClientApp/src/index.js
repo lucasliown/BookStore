@@ -15,7 +15,7 @@ const rootElement = document.getElementById('root');
 ReactDOM.render(
   <BrowserRouter basename={baseUrl}>
     <App />
-  </BrowserRouter>,
+    </BrowserRouter> ,
   rootElement);
 
 // If you want your app to work offline and load faster, you can change

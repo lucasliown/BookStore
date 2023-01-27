@@ -9,7 +9,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 
 //this is the navgation bar
 function NavbarComponent() {
-/*    const { currentUser, logout } = useContext(UserDetailContext);*/
+    /*    const { currentUser, logout } = useContext(UserDetailContext);*/
 
     return (
         <Navbar
@@ -34,15 +34,15 @@ function NavbarComponent() {
                             home
                         </Link>
                     </Nav>
-               {/*     {currentUser === null ? (*/}
-                        <Nav className="ms-auto">
-                            <Link
-                                className="btn btn-light mx-3 mt-2 mb-2 bg-secondary bg-opacity-10"
-                                to="/signin"
-                            >
-                                Log in
-                            </Link>
-                        </Nav>
+                    {/*     {currentUser === null ? (*/}
+                    <Nav className="ms-auto">
+                        <Link
+                            className="btn btn-light mx-3 mt-2 mb-2 bg-secondary bg-opacity-10"
+                            to="/login"
+                        >
+                            Log in
+                        </Link>
+                    </Nav>
                     {/*) : (*/}
                     {/*    <Nav className="ms-auto">*/}
                     {/*        <Link*/}
