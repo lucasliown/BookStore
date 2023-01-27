@@ -26,10 +26,10 @@ function App() {
 
     return (
         <div className="d-flex flex-column min-vh-100">
-            <NavbarComponent />
             <UserContext.Provider
                 value={{ currentUser, setCurrentUser, logout }}
             >
+            <NavbarComponent />
             <Routes>
                 <Route path="/" element={<HomeComponent />}/>
                     <Route path="/login" element={<LoginComponent />} />

@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 //this componet is for login 
 function LoginComponent() {
-    const { setCurrentUser, logout } = useContext(UserContext);
+    const { currentUser,setCurrentUser, logout } = useContext(UserContext);
     const navigate = useNavigate();
     const [inputDetail, setInputDetail] = useState("");
     const [message, setMessage] = useState("");
@@ -16,10 +16,9 @@ function LoginComponent() {
     const checkLogin = async (event) => {
         event.preventDefault();
         //check the vaildation
-        const checkPromise = await checkLoginFromData(
-            inputDetail
-        );
+        const checkPromise = await checkLoginFromData(inputDetail);
         const check = checkPromise;
+        console.log(check);
         if (check !== false) {
             setCurrentUser(check);
             toast.dismiss();
