@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
-import { Route } from 'react-router';
-//import { Layout } from './components/Layout';
-import './custom.css';
+import React from 'react';
+import { Route, Routes } from "react-router-dom";
+import NavbarComponent from './fragments/NavbarComponent';
+import FooterComponent from './fragments/FooterComponent';
+import "./css/App.css";
+import HomeComponent from './components/HomeComponent';
+
+
 
 function App() {
-    const [check, setCheck] = useState("here");
     return (
-      <div>
-        {/*<Route path='/' component={Home} />*/}
-        {/*<Route path='/counter' component={Counter} />*/}
-            {/*<Route path='/fetch-data' component={FetchData} />*/}
-            <div>{check}</div>
-            1212
-            1111111111111111111
+        <div className="d-flex flex-column min-vh-100">
+            <NavbarComponent />
+            <Routes>
+                <Route path="/" element={<HomeComponent />}/>
+{/*                <Route path="/login" element={<Login />} />*/}
+{/*                <Route path="/bookList" element={<BookList/>}/>*/}
+            </Routes>
+            <FooterComponent />
       </div>
     );
 }
