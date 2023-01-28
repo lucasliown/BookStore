@@ -5,10 +5,11 @@ import FooterComponent from './fragments/FooterComponent';
 import { ToastContainer, Slide, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./css/App.css";
-import HomeComponent from './components/HomeComponent';
-import LoginComponent from './components/LoginComponent';
+import HomeComponent from './pages/HomeComponent';
+import LoginComponent from './pages/LoginComponent';
+import BookListComponent from './pages/BookListComponent';
 import UserContext from './context/UserContext';
-import { getUserData, logoutFromWbsite } from './DataManage/userData'
+import { getUserData, logoutFromWbsite } from './DataManage/userData';
 
 
 
@@ -33,7 +34,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomeComponent />}/>
                     <Route path="/login" element={<LoginComponent />} />
-{/*                <Route path="/bookList" element={<BookList/>}/>*/}
+                    <Route path="/bookList" element={<BookListComponent/>}/>
                 </Routes>
             </UserContext.Provider>
             <FooterComponent />

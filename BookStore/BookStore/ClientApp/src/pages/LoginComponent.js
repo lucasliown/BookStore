@@ -12,7 +12,7 @@ function LoginComponent() {
     const [inputDetail, setInputDetail] = useState("");
     const [message, setMessage] = useState("");
 
-    //handler the sign in
+    //handler the Log in
     const checkLogin = async (event) => {
         event.preventDefault();
         //check the vaildation

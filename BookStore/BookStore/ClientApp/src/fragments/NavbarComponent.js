@@ -46,23 +46,23 @@ function NavbarComponent() {
                     ) : (
                         <Nav className="ms-auto">
                             <Link
-                                className="material-icons  mx-3 moveTopIcon mb-2 accountTagStyle changeicon bg-opacity-10"
-                                to="/allpost"
+                                className="material-icons  mx-3 moveTopIcon mb-2 accountTagStyle changeIcon bg-opacity-10"
+                                    to="/bookList"
                             >
-                                explore
+                                library_books
                             </Link>
-                            <Link
-                                className="material-icons  mx-3 moveTopIcon  mb-2 accountTagStyle changeicon bg-opacity-10"
-                                to="/posting"
-                            >
-                                add
-                            </Link>
-                            <Link
-                                className="material-icons  mx-3  moveTopIcon mb-2 accountTagStyle changeicon bg-opacity-10"
-                                to="/favourite"
-                            >
-                                favorite_border
-                            </Link>
+                            {/*<Link*/}
+                            {/*    className="material-icons  mx-3 moveTopIcon  mb-2 accountTagStyle changeIcon bg-opacity-10"*/}
+                            {/*    to="/posting"*/}
+                            {/*>*/}
+                            {/*    add*/}
+                            {/*</Link>*/}
+                            {/*<Link*/}
+                            {/*    className="material-icons  mx-3  moveTopIcon mb-2 accountTagStyle changeIcon bg-opacity-10"*/}
+                            {/*    to="/favourite"*/}
+                            {/*>*/}
+                            {/*    favorite_border*/}
+                            {/*</Link>*/}
                             <Dropdown>
                                 <Dropdown.Toggle variant="Link" className="dropdown-toggle">
                                     <div className="material-icons loginUser">account_circle</div>
@@ -74,7 +74,7 @@ function NavbarComponent() {
                                             className="btn btn-light border-0 bg-light bg-opacity-10 reduceRadius mb-0 p-2 changColor listCharacterStyle"
                                             to="/profile"
                                         >
-                                            My Profile
+                                            My Reservation
                                         </Link>
 
                                         <Link
