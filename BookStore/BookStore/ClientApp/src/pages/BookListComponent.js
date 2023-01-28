@@ -1,4 +1,4 @@
-﻿import React, { useState,useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import "../css/bookList.css";
 import BookDetail from '.././fragments/BookDetail';
 import { getAllBooks } from '../DataManage/service/bookService';
@@ -49,17 +49,23 @@ function BookListComponent() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {selected.length !== 0 &&
-                                            selected.map((book)=>{
+                                        {selected.length !== 0 ? (
+                                            selected.map((book) => {
                                                 return (
                                                     <BookDetail key={book.bookId}
                                                         bookDetail={book}
                                                     />
-                                                    );
-
-
-                                        })
-                                            }
+                                                );
+                                            }))
+                                            :
+                                            (options.map((book) => {
+                                                return (
+                                                    <BookDetail key={book.bookId}
+                                                        bookDetail={book}
+                                                    />
+                                                );
+                                            }))
+                                        }
                                     </tbody>
                                 </table>
                             </div>
