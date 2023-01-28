@@ -3,11 +3,30 @@ import "../css/bookList.css";
 import BookDetail from '.././fragments/BookDetail';
 import { getAllBooks } from '../DataManage/service/bookService';
 import { Typeahead } from 'react-bootstrap-typeahead';
+import { reserveABook } from '../DataManage/reserveData';
 
 function BookListComponent() {
     const [options, setOptions] = useState([]);
     //store search result 
     const [selected, setSelected] = useState([]);
+
+    const handleReserve = async (bookid, customerId) => {
+        const bookDetail = await reserveABook(bookid, customerId);
+        let temp_options = [...options];
+        for (const book of temp_options) {
+            if (book.bookId === bookDetail.bookId) {
+                book.quantity = bookDetail.quantity
+            }
+        }
+        setOptions(temp_options);
+        let temp_selected = [...selected];
+        for (const book of temp_selected) {
+            if (book.bookId === bookDetail.bookId) {
+                book.quantity = bookDetail.quantity
+            }
+        }
+        setSelected(temp_selected);
+    }
 
     //call api for get all the books
     useEffect(() => {
@@ -54,6 +73,7 @@ function BookListComponent() {
                                                 return (
                                                     <BookDetail key={book.bookId}
                                                         bookDetail={book}
+                                                        reserve={handleReserve }
                                                     />
                                                 );
                                             }))
@@ -62,6 +82,7 @@ function BookListComponent() {
                                                 return (
                                                     <BookDetail key={book.bookId}
                                                         bookDetail={book}
+                                                        reserve={handleReserve}
                                                     />
                                                 );
                                             }))

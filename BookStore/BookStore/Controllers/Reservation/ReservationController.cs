@@ -21,13 +21,13 @@ namespace BookStore.Controllers.Reservation
 
         public async Task<ActionResult> CreateReservation([FromBody] CreateNewReservation.Command command)
         {
-            var Reservation = await _mediator.Send(command);
+            var book = await _mediator.Send(command);
             //CreatedAtAction can create a URL it has actionName routeValues value
-            if (Reservation == null)
+            if (book == null)
             {
                 return CreatedAtAction(nameof(CreateReservation), new { id = -1 }, null);
             }
-            return CreatedAtAction(nameof(CreateReservation), new { id = Reservation.ReservationId }, Reservation);
+            return CreatedAtAction(nameof(CreateReservation), new { id = book.BookId }, book);
         }
 
     }

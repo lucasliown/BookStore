@@ -9,14 +9,14 @@ namespace BookStore.Controllers.Reservation
 {
     public class CreateNewReservation
     {
-        public class Command : IRequest<BookReservation>
+        public class Command : IRequest<Book>
         {
             public string BookId { get; set; }
 
             public int CustomerId { get; set; }
         }
 
-        public class CommandHandler : IRequestHandler<Command, BookReservation>
+        public class CommandHandler : IRequestHandler<Command, Book>
         {
 
             private readonly BookStoreContext _context;
@@ -27,7 +27,7 @@ namespace BookStore.Controllers.Reservation
 
 
             //add new reservation in the database
-            public async Task<BookReservation?> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<Book?> Handle(Command request, CancellationToken cancellationToken)
             {
                 BookReservation Reservation = new BookReservation
                 {
@@ -44,7 +44,7 @@ namespace BookStore.Controllers.Reservation
                 Book.Quantity--;
                 await _context.BooksReservation.AddAsync(Reservation, cancellationToken);
                 await _context.SaveChangesAsync(cancellationToken);
-                return Reservation;
+                return Book;
             }
         }
 
