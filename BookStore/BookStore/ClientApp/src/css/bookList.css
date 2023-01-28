@@ -1,5 +1,5 @@
 ﻿.moveList {
-    margin-top: 14rem;
+    margin-top: 10rem;
 }
 
 .backgroundColorBookList {
@@ -8,11 +8,6 @@
 
 .tableBackgroundColor {
     background-color: rgba(232, 228, 228, 0.147) !important;
-}
-
-
-.spinner-grow {
-    --bs-spinner-animation-speed: 0.8s !important;
 }
 
 
