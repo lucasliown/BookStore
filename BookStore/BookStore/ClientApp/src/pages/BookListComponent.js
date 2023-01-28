@@ -6,9 +6,10 @@ import { Typeahead } from 'react-bootstrap-typeahead';
 
 function BookListComponent() {
     const [options, setOptions] = useState([]);
+    //store search result 
     const [selected, setSelected] = useState([]);
 
-
+    //call api for get all the books
     useEffect(() => {
         const fetchAllBooks = async () => {
             const bookData = await getAllBooks();
@@ -26,7 +27,7 @@ function BookListComponent() {
                     <div className="col-sm-8">
                         <div className="card border-0">
                             <div className="card-body tableBackgroundColor p-5 shadow">
-                                <h5 className="card-title BookTableTitle border-0">
+                                <h5 className="card-title bookTableTitle border-0">
                                     Book List
                                 </h5>
                                 <br></br>
@@ -39,7 +40,7 @@ function BookListComponent() {
                                     selected={selected}
                                 />
                                 <br></br>
-                                <table className="table table-sm table-borderless BookTableHeader mb-0">
+                                <table className="table table-sm table-borderless bookTableHeader mb-0">
                                     <thead>
                                         <tr>
                                             <th>Title</th>

@@ -24,6 +24,7 @@ namespace BookStore.Controllers.CustomerCustomer
             }
 
 
+            //handle the database for verify customer detail
             public async Task<Customer?> Handle(Query request, CancellationToken cancellationToken)
             {
                 var verifyData = await _context.Customers.Where(x => x.Name == request._Name).FirstAsync();

@@ -9,6 +9,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 
 //this is the navgation bar
 function NavbarComponent() {
+    //get current user detail from useContext
     const { currentUser, logout } = useContext(UserContext);
 
     return (

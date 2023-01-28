@@ -16,6 +16,7 @@ namespace BookStore.Controllers.BookController
             _mediator = mediator;
         }
 
+        //api for geting all books
         [HttpGet]
         public async Task<IEnumerable<Book>> GetBook()
         {

@@ -2,7 +2,7 @@ using BookStore.Data;
 using Microsoft.EntityFrameworkCore;
 using MediatR;
 using System.Reflection;
-using Microsoft.OpenApi.Models;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,6 +42,7 @@ if (!app.Environment.IsDevelopment())
 
 if (app.Environment.IsDevelopment())
 {
+    //add swagger for checking api 
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {

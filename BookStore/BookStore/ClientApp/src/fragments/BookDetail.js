@@ -5,7 +5,7 @@ import "../css/bookList.css";
 function BookDetail(props) {
 
     return (
-        <tr className="BookTableText"> 
+        <tr className="bookTableText"> 
             <th>{props.bookDetail.title}</th>
             <th>{props.bookDetail.quantity}</th>
             <th className="reservationStatusWidth">
