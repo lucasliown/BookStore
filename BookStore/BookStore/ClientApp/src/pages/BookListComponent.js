@@ -3,7 +3,6 @@ import "../css/bookList.css";
 import BookDetail from '.././fragments/BookDetail';
 import { getAllBooks } from '../DataManage/service/bookService';
 import { Typeahead } from 'react-bootstrap-typeahead';
-import 'react-bootstrap-typeahead/css/Typeahead.css';
 
 function BookListComponent() {
     const [options, setOptions] = useState([]);
@@ -32,17 +31,17 @@ function BookListComponent() {
                                 </h5>
                                 <br></br>
                                 <Typeahead
-                                    id="basic-example"
+                                    id="typeahead"
                                     labelKey="title"
                                     onChange={setSelected}
                                     options={options}
-                                    placeholder="Choose a book..."
+                                    placeholder="Search a book..."
                                     selected={selected}
                                 />
+                                <br></br>
                                 <table className="table table-sm table-borderless BookTableHeader mb-0">
                                     <thead>
                                         <tr>
-                                            <th>Book Id</th>
                                             <th>Title</th>
                                             <th>Quantity</th>
                                             <th>Reservation</th>
