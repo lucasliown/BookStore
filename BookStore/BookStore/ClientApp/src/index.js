@@ -5,6 +5,9 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import "./css/index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 const rootElement = document.getElementById('root');
@@ -12,7 +15,7 @@ const rootElement = document.getElementById('root');
 ReactDOM.render(
   <BrowserRouter basename={baseUrl}>
     <App />
-  </BrowserRouter>,
+    </BrowserRouter> ,
   rootElement);
 
 // If you want your app to work offline and load faster, you can change

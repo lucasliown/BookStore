@@ -1,0 +1,41 @@
+﻿.moveList {
+    margin-top: 14rem;
+}
+
+.backgroundColorBookList {
+    background-color: rgba(246, 246, 241, 0.592);
+}
+
+.tableBackgroundColor {
+    background-color: rgba(232, 228, 228, 0.147) !important;
+}
+
+
+.spinner-grow {
+    --bs-spinner-animation-speed: 0.8s !important;
+}
+
+
+.BookTableTitle {
+    color: rgb(129, 164, 160) !important;
+    font-weight: bolder !important;
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif !important;
+}
+
+.BookTableHeader {
+    color: rgb(129, 164, 160) !important;
+    font-size: larger;
+    font-weight: bolder !important;
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif !important;
+}
+
+.BookTableText {
+    color: rgb(154, 158, 157) !important;
+    font-size: medium !important;
+    font-weight: bold !important;
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif !important;
+}
+
+.reservationStatusWidth {
+    min-width: 7rem;
+}

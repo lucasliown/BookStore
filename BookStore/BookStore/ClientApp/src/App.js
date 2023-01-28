@@ -1,19 +1,46 @@
 import React, { useState } from 'react';
-import { Route } from 'react-router';
-//import { Layout } from './components/Layout';
-import './custom.css';
+import { Route, Routes } from "react-router-dom";
+import NavbarComponent from './fragments/NavbarComponent';
+import FooterComponent from './fragments/FooterComponent';
+import { ToastContainer, Slide, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./css/App.css";
+import HomeComponent from './pages/HomeComponent';
+import LoginComponent from './pages/LoginComponent';
+import BookListComponent from './pages/BookListComponent';
+import UserContext from './context/UserContext';
+import { getUserData, logoutFromWbsite } from './DataManage/userData';
+
+
+
 
 function App() {
-    const [check, setCheck] = useState("here");
+    const [currentUser, setCurrentUser] = useState(getUserData());
+
+    //this call back function is for log out
+    const logout = () => {
+        logoutFromWbsite();
+        setCurrentUser(null);
+        toast.dismiss();
+    };
+
+
     return (
-      <div>
-        {/*<Route path='/' component={Home} />*/}
-        {/*<Route path='/counter' component={Counter} />*/}
-            {/*<Route path='/fetch-data' component={FetchData} />*/}
-            <div>{check}</div>
-            1212
-            1111111111111111111
-      </div>
+        <div className="d-flex flex-column min-vh-100">
+            <UserContext.Provider
+                value={{ currentUser, setCurrentUser, logout }}
+            >
+            <NavbarComponent />
+            <Routes>
+                <Route path="/" element={<HomeComponent />}/>
+                    <Route path="/login" element={<LoginComponent />} />
+                    <Route path="/bookList" element={<BookListComponent/>}/>
+                </Routes>
+            </UserContext.Provider>
+            <FooterComponent />
+            <ToastContainer transition={Slide} />
+        </div>
+
     );
 }
 
