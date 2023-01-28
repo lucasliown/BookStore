@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using BookStore.Model;
 using BookStore.Data;
-using System.Runtime.InteropServices;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.Controllers.CustomerCustomer
@@ -27,7 +26,7 @@ namespace BookStore.Controllers.CustomerCustomer
             //handle the database for verify customer detail
             public async Task<Customer?> Handle(Query request, CancellationToken cancellationToken)
             {
-                var verifyData = await _context.Customers.Where(x => x.Name == request._Name).FirstAsync();
+                var verifyData = await _context.Customers.Where(x => x.Name == request._Name).FirstAsync(cancellationToken);
                 return verifyData;
             }
         }
