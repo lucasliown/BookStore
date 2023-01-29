@@ -21,7 +21,7 @@ This repository contain 1 project, Uising React.js as front-end and uising asp.n
 ###  what to install
 Install Node v16.17.0 , NPM 8.11.0 , MySQL , Visual Studio 2022 are necessary.
 
-###  NPM pageage:
+###  NPM package:
     bootstrap
     http-proxy-middleware
     jquery
@@ -30,7 +30,7 @@ Install Node v16.17.0 , NPM 8.11.0 , MySQL , Visual Studio 2022 are necessary.
     react-bootstrap-typeahead
     react-toastify
     
-###  NuGet pageage:
+###  NuGet package:
     MediaR
     MediatR.Extension.Microsoft.DependencyInjection
     Microsoft.AspNetCore.SpaProxy
