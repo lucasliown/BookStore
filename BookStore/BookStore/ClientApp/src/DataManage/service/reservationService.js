@@ -6,4 +6,10 @@ const reserveBooks = async (reserveDetail) => {
     return promise.data
 };
 
-export { reserveBooks };
+//get reservation detail
+const getReservation = async (CustomerId) => {
+    const promise = await axios.get(`/api/Reservation/${CustomerId}`);
+    return promise.data
+};
+
+export { reserveBooks, getReservation };

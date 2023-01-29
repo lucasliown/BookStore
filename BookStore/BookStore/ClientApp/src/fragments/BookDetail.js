@@ -1,10 +1,10 @@
-﻿import React, { useContext} from "react";
+﻿import React, { useContext } from "react";
 import "../css/bookList.css";
 import UserContext from "../context/UserContext";
 
 //this is single book
 function BookDetail(props) {
-    const { currentUser} = useContext(UserContext);
+    const { currentUser } = useContext(UserContext);
 
     //pass the parameter into callback function
     const handleReserve = () => {
@@ -13,7 +13,7 @@ function BookDetail(props) {
 
 
     return (
-        <tr className="bookTableText"> 
+        <tr className="bookTableText">
             <th>{props.bookDetail.title}</th>
             <th>{props.bookDetail.quantity}</th>
             <th className="reservationStatusWidth">
@@ -28,8 +28,8 @@ function BookDetail(props) {
                 ) : (
                     <button
                         type="button"
-                            className="btn btn-outline-secondary"
-                            disabled
+                        className="btn btn-outline-secondary"
+                        disabled
                     >
                         Unavailable
                     </button>

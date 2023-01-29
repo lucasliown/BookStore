@@ -22,9 +22,14 @@ async function checkLoginFromData(name) {
     if (user === "") {
         return false;
     }
-    let userString = JSON.stringify(user);
+    const loginUser = {
+        customerId: user.customerId,
+        name: user.name
+        }
+    console.log(loginUser);
+    let userString = JSON.stringify(loginUser);
     localStorage.setItem(userkey, userString);
-    return user;
+    return loginUser;
 }
 
 

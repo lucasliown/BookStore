@@ -1,9 +1,6 @@
-﻿using BookStore.Controllers.CustomerCustomer;
-using BookStore.Model;
+﻿using BookStore.Model;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Runtime.InteropServices;
 
 namespace BookStore.Controllers.Reservation
 {
@@ -32,7 +29,6 @@ namespace BookStore.Controllers.Reservation
         }
 
         [HttpPost]
-
         public async Task<ActionResult> CreateReservation([FromBody] CreateNewReservation.Command command)
         {
             var book = await _mediator.Send(command);

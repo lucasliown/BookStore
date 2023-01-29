@@ -48,22 +48,10 @@ function NavbarComponent() {
                         <Nav className="ms-auto">
                             <Link
                                 className="material-icons  mx-3 moveTopIcon mb-2 accountTagStyle changeIcon bg-opacity-10"
-                                    to="/bookList"
+                                to="/bookList"
                             >
                                 library_books
                             </Link>
-                            {/*<Link*/}
-                            {/*    className="material-icons  mx-3 moveTopIcon  mb-2 accountTagStyle changeIcon bg-opacity-10"*/}
-                            {/*    to="/posting"*/}
-                            {/*>*/}
-                            {/*    add*/}
-                            {/*</Link>*/}
-                            {/*<Link*/}
-                            {/*    className="material-icons  mx-3  moveTopIcon mb-2 accountTagStyle changeIcon bg-opacity-10"*/}
-                            {/*    to="/favourite"*/}
-                            {/*>*/}
-                            {/*    favorite_border*/}
-                            {/*</Link>*/}
                             <Dropdown>
                                 <Dropdown.Toggle variant="Link" className="dropdown-toggle">
                                     <div className="material-icons loginUser">account_circle</div>
@@ -73,7 +61,7 @@ function NavbarComponent() {
                                     <div className="d-grid gap-2">
                                         <Link
                                             className="btn btn-light border-0 bg-light bg-opacity-10 reduceRadius mb-0 p-2 changColor listCharacterStyle"
-                                            to="/profile"
+                                            to="/myReservation"
                                         >
                                             My Reservation
                                         </Link>

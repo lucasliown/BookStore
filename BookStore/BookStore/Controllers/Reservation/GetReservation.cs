@@ -23,7 +23,7 @@ namespace BookStore.Controllers.Reservation
                 _context = context;
             }
 
-            //handle the database for getting all books
+            //handle the database for getting customer's reservation
             public async Task<IEnumerable<BookReservation>?> Handle(Query request, CancellationToken cancellationToken)
             {
                 List<BookReservation> BookReservationList = 

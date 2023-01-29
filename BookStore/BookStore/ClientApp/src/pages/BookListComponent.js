@@ -35,7 +35,6 @@ function BookListComponent() {
     useEffect(() => {
         const fetchAllBooks = async () => {
             const bookData = await getAllBooks();
-            console.log(bookData);
             setOptions(bookData);
         }
         fetchAllBooks();
