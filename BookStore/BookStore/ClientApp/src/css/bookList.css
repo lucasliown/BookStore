@@ -11,20 +11,20 @@
 }
 
 
-.BookTableTitle {
+.bookTableTitle {
     color: rgb(129, 164, 160) !important;
     font-weight: bolder !important;
     font-family: "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif !important;
 }
 
-.BookTableHeader {
+.bookTableHeader {
     color: rgb(129, 164, 160) !important;
     font-size: larger;
     font-weight: bolder !important;
     font-family: "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif !important;
 }
 
-.BookTableText {
+.bookTableText {
     color: rgb(154, 158, 157) !important;
     font-size: medium !important;
     font-weight: bold !important;
@@ -33,4 +33,9 @@
 
 .reservationStatusWidth {
     min-width: 7rem;
+}
+
+.alertCharacter {
+    color: rgba(82, 81, 81, 0.601);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }

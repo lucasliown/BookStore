@@ -8,6 +8,7 @@ import "./css/App.css";
 import HomeComponent from './pages/HomeComponent';
 import LoginComponent from './pages/LoginComponent';
 import BookListComponent from './pages/BookListComponent';
+import MyReservationComponent from './pages/MyReservationComponent';
 import UserContext from './context/UserContext';
 import { getUserData, logoutFromWbsite } from './DataManage/userData';
 
@@ -34,7 +35,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomeComponent />}/>
                     <Route path="/login" element={<LoginComponent />} />
-                    <Route path="/bookList" element={<BookListComponent/>}/>
+                    <Route path="/bookList" element={<BookListComponent />} />
+                    <Route path="/myReservation" element={<MyReservationComponent />} />
                 </Routes>
             </UserContext.Provider>
             <FooterComponent />

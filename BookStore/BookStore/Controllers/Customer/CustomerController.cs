@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using BookStore.Model;
+using Microsoft.Extensions.Logging;
 
 namespace BookStore.Controllers.CustomerCustomer
 {
@@ -9,11 +10,15 @@ namespace BookStore.Controllers.CustomerCustomer
     public class CustomerController : ControllerBase
     {
 
+        private readonly ILogger<CustomerController> _logger;
+
         private readonly IMediator _mediator;
-        public CustomerController(IMediator mediator) {
+        public CustomerController(IMediator mediator, ILogger<CustomerController> logger) {
             _mediator=mediator;
+            _logger=logger;
         }
 
+        //Login function
         [HttpGet("{Name}")]
         public async Task<Customer?> Login (string Name)
         {
@@ -25,7 +30,7 @@ namespace BookStore.Controllers.CustomerCustomer
             }
             catch(Exception ex)
             {
-               Console.WriteLine("Account isn't exist . "+ "The Reason is : " + ex);
+                _logger.LogError(ex, "Account isn't exist . ");
             }
             return LoginCustomer;
         }

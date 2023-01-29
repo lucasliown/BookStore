@@ -2,7 +2,7 @@ using BookStore.Data;
 using Microsoft.EntityFrameworkCore;
 using MediatR;
 using System.Reflection;
-using Microsoft.OpenApi.Models;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 //add database into service
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<BookStoreContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("mysqlConstr")
-    ));
+builder.Services.AddDbContext<BookStoreContext>(options => {
+    
+    options.UseMySQL(builder.Configuration.GetConnectionString("mysqlConstr"));
+    // Enable lazy loading.
+    options.UseLazyLoadingProxies();
+});
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddSwaggerGen();
 
@@ -42,6 +46,7 @@ if (!app.Environment.IsDevelopment())
 
 if (app.Environment.IsDevelopment())
 {
+    //add swagger for checking api 
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {

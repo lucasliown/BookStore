@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 //this componet is for login 
 function LoginComponent() {
-    const { currentUser,setCurrentUser, logout } = useContext(UserContext);
+    const { setCurrentUser } = useContext(UserContext);
     const navigate = useNavigate();
     const [inputDetail, setInputDetail] = useState("");
     const [message, setMessage] = useState("");

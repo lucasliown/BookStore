@@ -17,7 +17,7 @@ namespace BookStore.Controllers.BookController
                 _context = context;
             }
 
-
+            //handle the database for getting all books
             public async Task<IEnumerable<Book>> Handle(Query request, CancellationToken cancellationToken)
             {
                 return await _context.Books.ToListAsync(cancellationToken);

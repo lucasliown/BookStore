@@ -1,7 +1,7 @@
 ﻿import React from "react";
 import "../css/homeBackground.css";
 
-
+//this is home page
 function HomeComponent() {
 
     return (

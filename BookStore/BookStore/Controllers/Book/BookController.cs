@@ -1,5 +1,4 @@
-﻿//using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using BookStore.Model;
 
@@ -16,6 +15,7 @@ namespace BookStore.Controllers.BookController
             _mediator = mediator;
         }
 
+        //api for geting all books
         [HttpGet]
         public async Task<IEnumerable<Book>> GetBook()
         {

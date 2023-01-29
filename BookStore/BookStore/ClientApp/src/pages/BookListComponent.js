@@ -3,16 +3,38 @@ import "../css/bookList.css";
 import BookDetail from '.././fragments/BookDetail';
 import { getAllBooks } from '../DataManage/service/bookService';
 import { Typeahead } from 'react-bootstrap-typeahead';
+import { reserveABook } from '../DataManage/reserveData';
 
 function BookListComponent() {
     const [options, setOptions] = useState([]);
+    //store search result 
     const [selected, setSelected] = useState([]);
 
+    //this is callback function for reserve a book
+    const handleReserve = async (bookid, customerId) => {
+        const bookDetail = await reserveABook(bookid, customerId);
+        //change the quantity of book in the options array
+        let temp_options = [...options];
+        for (const book of temp_options) {
+            if (book.bookId === bookDetail.bookId) {
+                book.quantity = bookDetail.quantity
+            }
+        }
+        setOptions(temp_options);
+        //change the quantity of book in the selected array
+        let temp_selected = [...selected];
+        for (const book of temp_selected) {
+            if (book.bookId === bookDetail.bookId) {
+                book.quantity = bookDetail.quantity
+            }
+        }
+        setSelected(temp_selected);
+    }
 
+    //call api for get all the books
     useEffect(() => {
         const fetchAllBooks = async () => {
             const bookData = await getAllBooks();
-            console.log(bookData);
             setOptions(bookData);
         }
         fetchAllBooks();
@@ -26,7 +48,7 @@ function BookListComponent() {
                     <div className="col-sm-8">
                         <div className="card border-0">
                             <div className="card-body tableBackgroundColor p-5 shadow">
-                                <h5 className="card-title BookTableTitle border-0">
+                                <h5 className="card-title bookTableTitle border-0">
                                     Book List
                                 </h5>
                                 <br></br>
@@ -39,7 +61,7 @@ function BookListComponent() {
                                     selected={selected}
                                 />
                                 <br></br>
-                                <table className="table table-sm table-borderless BookTableHeader mb-0">
+                                <table className="table table-sm table-borderless bookTableHeader mb-0">
                                     <thead>
                                         <tr>
                                             <th>Title</th>
@@ -53,6 +75,7 @@ function BookListComponent() {
                                                 return (
                                                     <BookDetail key={book.bookId}
                                                         bookDetail={book}
+                                                        reserve={handleReserve }
                                                     />
                                                 );
                                             }))
@@ -61,6 +84,7 @@ function BookListComponent() {
                                                 return (
                                                     <BookDetail key={book.bookId}
                                                         bookDetail={book}
+                                                        reserve={handleReserve}
                                                     />
                                                 );
                                             }))
