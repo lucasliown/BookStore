@@ -16,7 +16,7 @@ namespace BookStore.Controllers.Reservation
             public int CustomerId { get; set; }
         }
 
-        public class CommandHandler : IRequestHandler<Command, Book>
+        public class CommandHandler : IRequestHandler<Command, Book?>
         {
 
             private readonly BookStoreContext _context;

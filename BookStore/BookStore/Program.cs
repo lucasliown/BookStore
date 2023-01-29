@@ -10,8 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 //add database into service
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<BookStoreContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("mysqlConstr")
-    ));
+builder.Services.AddDbContext<BookStoreContext>(options => {
+    
+    options.UseMySQL(builder.Configuration.GetConnectionString("mysqlConstr"));
+    // Enable lazy loading.
+    options.UseLazyLoadingProxies();
+});
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddSwaggerGen();
 

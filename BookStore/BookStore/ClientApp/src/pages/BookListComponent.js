@@ -10,8 +10,10 @@ function BookListComponent() {
     //store search result 
     const [selected, setSelected] = useState([]);
 
+    //this is callback function for reserve a book
     const handleReserve = async (bookid, customerId) => {
         const bookDetail = await reserveABook(bookid, customerId);
+        //change the quantity of book in the options array
         let temp_options = [...options];
         for (const book of temp_options) {
             if (book.bookId === bookDetail.bookId) {
@@ -19,6 +21,7 @@ function BookListComponent() {
             }
         }
         setOptions(temp_options);
+        //change the quantity of book in the selected array
         let temp_selected = [...selected];
         for (const book of temp_selected) {
             if (book.bookId === bookDetail.bookId) {

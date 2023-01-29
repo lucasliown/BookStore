@@ -6,8 +6,8 @@ import UserContext from "../context/UserContext";
 function BookDetail(props) {
     const { currentUser} = useContext(UserContext);
 
-
-    const handleReserve = (event) => {
+    //pass the parameter into callback function
+    const handleReserve = () => {
         props.reserve(props.bookDetail.bookId, currentUser.customerId);
     }
 
